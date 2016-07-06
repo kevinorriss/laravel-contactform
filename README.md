@@ -37,7 +37,7 @@ to generate a site key and secret for your application.
   RECAPTCHA_SECRET=my_recaptcha_secret
   RECAPTCHA_SITE_KEY=my_recaptcha_site_key
   ```
-  
+
 ### Email configuration
 
 You must first set up your mail driver, please refer to the Laravel documentation for this.
@@ -48,6 +48,8 @@ You must first set up your mail driver, please refer to the Laravel documentatio
   CONTACT_FORM_EMAIL=example@myapplication.com
   CONTACT_FORM_NAME="Example Name"
   ```
+
+This is the email address that the users message will be sent to.
   
 ## Example
 
