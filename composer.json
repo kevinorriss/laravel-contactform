@@ -1,0 +1,28 @@
+{
+    "name": "kevinorriss/contactform",
+	"type": "library",
+    "description": "A basic contact form of email address, message and Google ReCaptcha validation",
+	"keywords": ["contact","form"],
+	"homepage": "https://github.com/kevinorriss/contactform",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Orriss",
+            "email": "hello@kevinorriss.com",
+            "homepage": "http://kevinorriss.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.2.*",
+        "laravelcollective/html": "5.2.*",
+        "google/recaptcha": "1.1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "KevinOrriss\\ContactForm\\": "src"
+        }
+    }
+}
