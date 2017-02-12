@@ -9,7 +9,6 @@ use Session;
 use Validator;
 use App\Http\Controllers\Controller;
 use ReCaptcha\ReCaptcha;
-use Collective\Html\FormFacade as Form;
 
 class ContactFormController extends Controller
 {
@@ -54,11 +53,11 @@ class ContactFormController extends Controller
         Mail::raw($data['message'], function ($m) use ($email) {
             $m->from($email, $email);
             $m->to(env('CONTACT_FORM_EMAIL'), env('CONTACT_FORM_NAME'));
-            $m->subject('Message revieved from user');
+            $m->subject(env('CONTACT_FORM_SUBJECT', 'Message recieved from user'));
         });
 
         // flash a success message back to the contact page
-        Session::flash('success', 'Your message has been sent.');
+        Session::flash('success', env('CONTACT_FORM_SUCCESS', 'Your message has been sent'));
         return redirect(route('contactform.get'));
     }
 }

@@ -13,7 +13,7 @@ your own view with application specific layout and CSS styles.
 
 1. Add ContactForm to your composer.json file under `require`:
 
-  `"kevinorriss\contactform": "1.0.*"`
+  `"kevinorriss\contactform": "1.1.*"`
 
 2. Add the ContactFormServiceProvider to your app.php file:
 
@@ -50,6 +50,15 @@ You must first set up your mail driver, please refer to the Laravel documentatio
   ```
 
 This is the email address that the users message will be sent to.
+
+2. Add these optional settings to your environment file
+
+  ```
+  CONTACT_FORM_SUBJECT="<YOUR SUBJECT>"
+  CONTACT_FORM_SUCCESS="<YOUR SUCCESS MESSAGE>"
+  ```
+
+These allow you to override the subject of the email and also the flash message that the users sees when the email is sent successfully.
   
 ## Example
 

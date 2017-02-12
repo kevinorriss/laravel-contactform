@@ -15,10 +15,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.5.9",
-        "laravel/framework": "5.2.*",
-        "laravelcollective/html": "5.2.*",
-        "google/recaptcha": "1.1.*"
+        "laravel/framework": "5.4.*",
+        "google/recaptcha": "1.2.*"
     },
     "autoload": {
         "psr-4": {

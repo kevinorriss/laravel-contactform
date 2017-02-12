@@ -8,15 +8,22 @@
                 </div>
             @endif
 
-			<div class="panel panel-primary">
+			<div class="panel panel-default">
                 <div class="panel-heading">{{ $heading ?? 'Contact Form' }}</div>
                 <div class="panel-body">
-                	{!! Collective\Html\FormFacade::open(['url' => route('contactform.post'), 'method' => 'POST', 'role' => 'form']) !!}
+                    <form action="{{ route('contactform.post') }}" method="POST" role="form">
+                        {{ csrf_field() }}
 
 						<!-- Email -->
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            {!! Collective\Html\FormFacade::label('email', 'Email', ['class' => 'control-label text-primary']) !!}
-                            {!! Collective\Html\FormFacade::text('email', !is_null(old('email')) ? old('email') : (Auth::check() ? Auth::user()->email : ''), ['class' => 'form-control']) !!}
+                            <label for="email" class="control-label">Email</label>
+                            @if (!is_null(old('email')))
+                                <input type="text" name="email" class="form-control" value="{{ old('email') }}"/>
+                            @elseif(Auth::check())
+                                <input type="text" name="email" class="form-control" value="{{ Auth::user()->email }}"/>
+                            @else
+                                <input type="text" name="email" class="form-control" value=""/>
+                            @endif
                             @if ($errors->has('email'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('email') }}</strong>
@@ -26,8 +33,8 @@
 
                         <!-- Message -->
                         <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}">
-                            {!! Collective\Html\FormFacade::label('message', 'Message', ['class' => 'control-label text-primary']) !!}
-                            {!! Collective\Html\FormFacade::textarea('message', old('message'), ['class' => 'form-control']) !!}
+                            <label for="message" class="control-label">Message</label>
+                            <textarea name="message" class="form-control">{{ old('message') }}</textarea>
                             @if ($errors->has('message'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('message') }}</strong>
@@ -51,7 +58,7 @@
                         	<a class="btn btn-default" href="{{ route('contactform.get') }}">Reset</a>
                         </div>
 
-                	{!! Collective\Html\FormFacade::close() !!}
+                	</form>
                 </div>
             </div>
             

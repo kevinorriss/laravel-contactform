@@ -14,16 +14,6 @@ class ContactFormServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__.'/views', 'contactform');
-    }
-
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        include __DIR__.'/routes.php';
-        $this->app->make('KevinOrriss\ContactForm\ContactFormController');
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
     }
 }
