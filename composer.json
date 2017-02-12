@@ -16,7 +16,7 @@
     "minimum-stability": "stable",
     "require": {
         "laravel/framework": "5.4.*",
-        "google/recaptcha": "1.2.*"
+        "google/recaptcha": "1.1.*"
     },
     "autoload": {
         "psr-4": {
